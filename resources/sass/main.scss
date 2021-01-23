@@ -1,0 +1,32 @@
+body {
+    background: rgba(0,0,0,0.81);
+}
+main {
+    margin-top: 60px;
+}
+nav{
+    background: #e0e0e0;
+    box-shadow: 0px 7px 10px 6px rgb(0 0 0 / 32%);
+}
+.nav-container{
+    display: flex;
+    justify-content: space-between;
+
+    ul, li{
+        list-style: none;
+    }
+
+    .right-nav {
+        padding-right: 40px;
+    }
+
+    a{
+        padding: 20px;
+    }
+}
+.max-width {
+    max-width: 90rem;
+}
+h1, h2, h3, h4, p, {
+    color: rgb(241 241 241);
+}

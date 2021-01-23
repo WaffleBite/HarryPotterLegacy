@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Controllers\ProductController;
+use \App\Http\Controllers\NewsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +18,11 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/shop', [ProductController::class, 'index']);
+Route::get('/shop/{id}', [ProductController::class, 'show']);
+Route::get('/news', [NewsController::class, 'index']);
+Route::get('/news/{id}', [NewsController::class, 'show']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
