@@ -1,0 +1,25 @@
+#home-header {
+    background: url("../images/header.jpg");
+    background-size: cover;
+    background-position-y: -179px;
+}
+
+#shop-header {
+    background: url("../images/diagonAlley.png");
+    background-size: cover;
+    background-position-y: -179px;
+}
+
+#home-image {
+    background: url("../images/train.jpg");
+    min-height: 63vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#news-header{
+    background: url("../images/dailyProphet.jpg");
+    background-size: cover;
+    background-position-y: -436px;
+}

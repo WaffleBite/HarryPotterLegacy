@@ -2,20 +2,41 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Models\Product;
 
 class ProductController extends Controller
 {
-    function index(){
+    public function index(){
         $data = Product::all();
-        return view('shop.products',
-            ['products' => $data]);
+        $categories = Category::all();
+
+        return view('shop.products')->with([
+            'products' => $data,
+            'categories' => $categories
+        ]);
     }
 
-    function show($id){
+    public function show($id){
         $data = Product::find($id);
-        return view('shop.productDetail',
-        ['product' => $data]);
+        $categories = Category::all();
+
+        return view('shop.productDetail', [
+            'product' => $data,
+            'categories' => $categories
+        ]);
+    }
+
+    public function listByCat($slug){
+        $listProducts = Product::where('categorySlug', $slug)->get();
+        $categories = Category::all();
+        $categoryName = Category::select('name')->where('slug', $slug)->first();
+
+        return view('shop.category')->with([
+            'listProducts' => $listProducts,
+            'categories' => $categories,
+            'categoryName' => $categoryName
+        ]);
     }
 }

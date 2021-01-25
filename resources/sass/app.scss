@@ -1,0 +1,193 @@
+//-----------------------------------------------header
+
+#home-header, #shop-header {
+    width: 100%;
+    height: 70vh;
+}
+
+
+//----------------------------------------------shop
+#shop {
+    margin-top: 110px;
+    margin-bottom: 110px;
+    h2{
+        font-size: 36px;
+        margin: 0;
+    }
+}
+.shop-container {
+    display: grid;
+    grid-template-columns: 73% 13%;
+    gap: 50px;
+
+    .product-container{
+        display: grid;
+        grid-template-columns: repeat(3, 300px);
+        gap: 30px;
+
+        a{
+            margin-bottom: 55px;
+        }
+        img {
+            height: 250px;
+            width: 300px;
+        }
+        h2, p {
+            margin: 0;
+        }
+    }
+    .category-container{
+        text-align: center;
+        h3{
+            font-size: 30px;
+            margin: 0;
+        }
+    }
+}
+
+//-----------------------------------------------news page
+#news-header{
+    width: 100%;
+    height: 70vh;
+}
+#news {
+    margin-top: 110px;
+    margin-bottom: 110px;
+    padding: 0;
+
+    .news-container {
+        display: grid;
+        grid-template-columns: 63% 23%;
+        gap: 90px;
+        .newsArticle {
+            display: grid;
+            grid-template-columns: 240px auto;
+            gap: 17px;
+            margin-bottom: 55px;
+            h2{
+                color: #77DEFF;
+                margin: 0;
+                &:hover {
+                    color: #2dafe1;
+                }
+            }
+            .newsImage{
+                width: 240px;
+                height: 159px;
+                overflow: hidden;
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        .tags-container{
+            display: grid;
+            grid-template-columns: repeat(2, auto);
+            grid-template-rows: 22px;
+            gap: 6px;
+            p{
+                margin: 0;
+            }
+        }
+    }
+}
+
+//----------------------------------------------item detail page
+.item-container {
+    img{
+        max-width: 470px;
+    }
+    .item-title {
+        color: #77DEFF;
+        font-family: 'Rasa', serif;
+        font-size: 2rem;
+        margin: 0;
+    }
+    p {
+        margin-top: 0;
+        line-height: 190%;
+        width: 800px;
+    }
+    button {
+        padding: 10px 50px;
+        background-color: #4C5343;
+        color: white;
+        font-family: 'Open Sans';
+        font-weight: 500;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 40px;
+
+        &:hover{
+            background-color: #6e7563;
+        }
+    }
+}
+
+//----------------------------------------------- home page
+
+#news-section{
+    display: grid;
+    grid-template-columns: repeat(3, 293px);
+    gap: 120px;
+    background-color: #31362C;
+    padding: 50px;
+    justify-content: center;
+    h2{
+        font-family: "Rasa", serif;
+        margin: 8px 0;
+        color: #a0eeff;
+        font-size: 1.6rem;
+
+        &:hover{
+            color: #2a81ad;
+        }
+    }
+    p{
+        font-family: "Open Sans";
+        font-weight: 300;
+        margin: 0;
+    }
+    .newsImage{
+        width: 293px;
+        height: 159px;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+#video {
+    padding: 75px;
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    justify-content: center;
+    gap: 80px;
+    p{
+        font-family: Raleway;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+    }
+}
+
+#description {
+    h1{
+        font-family: Rasa;
+        font-style: normal;
+        font-weight: normal;
+        text-align: center;
+        font-size: 2.7rem;
+    }
+    p{
+        font-family: Open Sans;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 15px;
+        line-height: 150%;
+    }
+    .game-description-container {
+        padding: 50px 395px;
+    }
+}

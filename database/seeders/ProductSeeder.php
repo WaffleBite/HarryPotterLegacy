@@ -2,6 +2,8 @@
 
 namespace Database\Seeders;
 
+use App\Models\Product;
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -12,14 +14,7 @@ class ProductSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
-    {
-        DB:table('products')->insert([
-        'name' => 'Common Crate',
-        'price' => '1500',
-        'category' => 'Crates',
-        'description' => 'lorem ipsum',
-        'image' => 'https://via.placeholder.com/728x90'
-    ]);
+    public function run(){
+
     }
 }
