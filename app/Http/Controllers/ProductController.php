@@ -8,13 +8,16 @@ use App\Models\Product;
 
 class ProductController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index(){
         $data = Product::all();
-        $categories = Category::all();
 
-        return view('shop.products')->with([
-            'products' => $data,
-            'categories' => $categories
+        return view('admin.shop.products')->with([
+            'products' => $data
         ]);
     }
 
@@ -22,21 +25,33 @@ class ProductController extends Controller
         $data = Product::find($id);
         $categories = Category::all();
 
-        return view('shop.productDetail', [
+        return view('admin.shop.productDetail', [
             'product' => $data,
             'categories' => $categories
         ]);
     }
 
-    public function listByCat($slug){
-        $listProducts = Product::where('categorySlug', $slug)->get();
-        $categories = Category::all();
-        $categoryName = Category::select('name')->where('slug', $slug)->first();
+    public function create()
+    {
+        $data = Category::all();
 
-        return view('shop.category')->with([
-            'listProducts' => $listProducts,
-            'categories' => $categories,
-            'categoryName' => $categoryName
+        return view('admin.shop.create')->with([
+            'categories' => $data
         ]);
+    }
+
+    public function store(Request $request)
+    {
+        $product = new Product();
+
+        $product -> name = $request->input('name');
+        $product -> price = $request->input('price');
+        $product -> itemDescription = $request->input('itemDescription');
+        $product -> categorySlug = $request->input('categorySlug');
+        $product -> image = $request->input('image');
+
+        $product -> save();
+
+        return redirect('/dashboard/products') -> with('mssg', 'Product created!');
     }
 }
