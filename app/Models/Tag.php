@@ -7,5 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    use HasFactory;
+    public function news()
+    {
+        return $this->belongsToMany('App\Models\News', 'news_tags')
+            ->orderBy('created_at', 'DESC')->paginate(5);
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'tagSlug';
+    }
 }

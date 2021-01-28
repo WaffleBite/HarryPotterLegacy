@@ -1,6 +1,6 @@
 //-----------------------------------------------header
 
-#home-header, #shop-header {
+#home-header, #shop-header, #news-header {
     width: 100%;
     height: 70vh;
 }
@@ -46,9 +46,11 @@
 }
 
 //-----------------------------------------------news page
-#news-header{
-    width: 100%;
-    height: 70vh;
+.news-article-title{
+    color: #77DEFF;
+    &:hover {
+        color: #2dafe1;
+    }
 }
 #news {
     margin-top: 110px;
@@ -59,46 +61,127 @@
         display: grid;
         grid-template-columns: 63% 23%;
         gap: 90px;
-        .newsArticle {
-            display: grid;
-            grid-template-columns: 240px auto;
-            gap: 17px;
-            margin-bottom: 55px;
-            h2{
-                color: #77DEFF;
-                margin: 0;
-                &:hover {
-                    color: #2dafe1;
-                }
-            }
-            .newsImage{
-                width: 240px;
-                height: 159px;
-                overflow: hidden;
-                img{
-                    width: 100%;
-                }
-            }
-        }
+
         .tags-container{
-            display: grid;
-            grid-template-columns: repeat(2, auto);
-            grid-template-rows: 22px;
-            gap: 6px;
-            p{
-                margin: 0;
+            align-self: start;
+            gap: 8px;
+            display: flex;
+            flex-wrap: wrap;
+            .tag-item{
+                width: fit-content;
+                text-align: left;
+                border-radius: 15px;
+                background: #63807c;
+                padding: 5px;
+                margin-right: 10px;
+                height: fit-content;
+                &:hover{
+                    background: #e28d81;
+                }
+                a{
+                    width: fit-content;
+                }
+                p{
+                    margin: 0;
+                    width: max-content;
+                }
             }
+
         }
     }
 }
 
+.news-container{
+    text-align: -webkit-center;
+    .news-title{
+        padding: 43px;
+        h2 {
+            font-family: Rasa;
+            font-size: 3rem;
+            margin: 0;
+            line-height: 30px;
+        }
+        small{
+            color: #e6e6e6;
+            font-family: "Open Sans";
+        }
+    }
+    .news-image{
+        text-align: center;
+        overflow: hidden;
+        max-width: 1000px;
+        max-height: 400px;
+        background-size: cover;
+        img{
+            width: 100%;
+        }
+    }
+    .news-content{
+        text-align: justify;
+        margin-top: 50px;
+        b, strong {
+            color: #77deff;
+        }
+        em {
+            color: #b0f8ff;
+        }
+    }
+}
+.latest-news {
+    text-align: left;
+    width: 62%;
+}
+.article-center{
+    justify-content: center;
+}
+.newsArticle {
+    display: grid;
+    grid-template-columns: 240px 600px;
+    gap: 17px;
+    margin-bottom: 55px;
+    text-align: initial;
+    h2{
+        margin: 0;
+    }
+    .newsImage{
+        width: 240px;
+        height: 159px;
+        overflow: hidden;
+        img{
+            width: 100%;
+        }
+    }
+}
+
+.pagination {
+    nav {
+        background: transparent;
+        justify-content: center;
+        .arrow{
+            font-weight: 900;
+        }
+        .numbers{
+            margin: 0px 10px;
+            padding: 6px 18px;
+            font-weight: 900;
+            background: #32362c;
+            &:hover{
+                background: #44483e;
+            }
+        }
+        ul{
+            display: flex;
+            justify-content: center;
+            padding: 0;
+        }
+    }
+}
 //----------------------------------------------item detail page
 .item-container {
     img{
         max-width: 470px;
     }
     .item-title {
-        color: #77DEFF;
         font-family: 'Rasa', serif;
         font-size: 2rem;
         margin: 0;
@@ -138,10 +221,6 @@
         margin: 8px 0;
         color: #a0eeff;
         font-size: 1.6rem;
-
-        &:hover{
-            color: #2a81ad;
-        }
     }
     p{
         font-family: "Open Sans";

@@ -4,23 +4,24 @@
     <script src="https://cdn.tiny.cloud/1/dbc0aa4ka7227a3c2c3zzbkdyzv2s03frg6usuenc4ve8q1f/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
 
     <div class="content-wrapper">
-        <h1>Create a product</h1>
+        <h1>Edit product "{{$product->name}}"</h1>
         @include('includes.messages')
-        <form role="form" action="/dashboard/products" method='POST'>
+        <form role="form" action="{{route('product.update' , $product->id)}}" method='POST'>
             @csrf
+            @method('PUT')
             <div class="card-body">
                 <div class="form-group">
                     <div class="form-group">
                         <label for="name">Name</label>
-                        <input type="text" name="name" class="form-control" id="name">
+                        <input value="{{$product->name}}" type="text" name="name" class="form-control" id="name">
                     </div>
                     <div class="form-group">
                         <label for="price">Price</label>
-                        <input type="text" name="price" class="form-control" id="price">
+                        <input value="{{$product->price}}" type="text" name="price" class="form-control" id="price">
                     </div>
                     <div class="form-group">
                         <label for="itemDescription">Description</label>
-                        <textarea rows="4" type="textarea" name="itemDescription" class="form-control" id="itemDescription"></textarea>
+                        <textarea rows="4" type="textarea" name="itemDescription" class="form-control" id="itemDescription">{{$product->itemDescription}}</textarea>
                     </div>
 
 

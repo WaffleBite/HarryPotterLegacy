@@ -66,52 +66,6 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-tree"></i>
                         <p>
-                            Manage Shop
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('create.product')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add Product</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('create.category')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add Category</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
-                        <p>
-                            Manage Blog
-                            <i class="fas fa-angle-left right"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="{{route('admin.create.article')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add blog post</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="{{route('admin.create.tag')}}" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Add tags</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item has-treeview">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
-                        <p>
                             Users
                             <i class="fas fa-angle-left right"></i>
                         </p>

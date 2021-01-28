@@ -29,6 +29,11 @@ class CategoryController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name'  => 'required',
+            'slug' => 'required'
+        ]);
+
         $category = new Category();
 
         $category -> name = $request->input('name');
@@ -48,18 +53,37 @@ class CategoryController extends Controller
 
     public function edit($id)
     {
-        //
+        $category = Category::findOrFail($id);
+
+        return view('admin.shop.editCategory', [
+            'category' => $category
+        ]);
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'name'  => 'required',
+            'slug' => 'required'
+        ]);
+
+        $category = Category::find($id);
+
+        $category -> name = $request->input('name');
+        $category -> slug = $request->input('slug');
+
+        $category -> save();
+
+        return redirect('/dashboard/categories') -> with('mssg', 'Category updated!');
     }
 
 
     public function destroy($id)
     {
-        //
+        $category = Category::findOrFail($id);
+        $category->delete();
+
+        return redirect('/dashboard/categories') -> with('mssg', 'Category deleted!');
     }
 }

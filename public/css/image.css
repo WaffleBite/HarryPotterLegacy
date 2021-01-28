@@ -1,13 +1,13 @@
 #home-header {
     background: url("../images/header.jpg");
     background-size: cover;
-    background-position-y: -179px;
+    background-position-y: -263px;
 }
 
 #shop-header {
-    background: url("../images/diagonAlley.png");
+    background: url("../images/3.jpg");
     background-size: cover;
-    background-position-y: -179px;
+    background-position-y: -408px;
 }
 
 #home-image {

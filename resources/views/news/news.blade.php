@@ -9,7 +9,7 @@
                     <div class="newsArticle">
                         <div class="newsImage"><img src="{{$item->picture}}" alt="{{$item->title}}"></div>
                         <div>
-                            <a href="/news/{{$item['id']}}"><h2>{{$item['title']}}</h2></a>
+                            <a href="/news/{{$item['id']}}"><h2 class="news-article-title">{{$item['title']}}</h2></a>
                             <p>{{$item->description}}</p>
                         </div>
                     </div>
@@ -17,11 +17,17 @@
                 @endforeach
             </div>
             <div class="tags-container">
-                    <p>store</p>
-                    <p>membership</p>
-                    <p>patronus</p>
-                    <p>update</p>
+                @foreach($tags as $tag)
+                        <a href="{{route('tag', $tag->tagSlug)}}">
+                            <div class="tag-item">
+                                <p>{{$tag->tagName}}</p>
+                            </div>
+                        </a>
+                @endforeach
             </div>
+        </div>
+        <div class="pagination">
+            {{ $news->links('vendor.pagination.bootstrap-4') }}
         </div>
     </div>
 @endsection

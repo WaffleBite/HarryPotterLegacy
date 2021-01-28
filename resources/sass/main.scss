@@ -1,20 +1,22 @@
 nav{
-    background: #555A68;
-    box-shadow: 0px 7px 10px 6px rgb(0 0 0 / 32%);
+    //background: #555A68;
+    background: #F4F4F4;
 }
 .nav-container{
     display: flex;
     justify-content: space-between;
     a{
         padding: 20px;
-        font-family: "Open Sans";
-
-        &:hover {
-            color: #d7eaf1;
-        }
+        color: #080808;
     }
     .right-nav {
         padding-right: 40px;
+    }
+}
+a{
+    font-family: "Open Sans";
+    &:hover {
+        color: #e28d81;
     }
 }
 .max-width {

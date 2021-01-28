@@ -33,18 +33,26 @@ class BlogPostController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'title'  => 'required',
+            'content' => 'required',
+            'writtenBy' => 'required',
+            'description' => 'required'
+        ]);
+
         $post = new News();
 
         $post -> title = $request->input('title');
-        $post -> postDescription = $request->input('postDescription');
         $post -> content = $request->input('content');
         $post -> writtenBy = $request->input('writtenBy');
-        $post -> tag = $request->input('tag');
-        $post -> image = $request->input('image');
-
+        $post -> description = $request->input('description');
+        $post -> smallPic = $request->input('smallPic');
+        $post -> picture = $request->input('picture');
+        $post -> published = $request->input('published');
         $post -> save();
+        $post -> tags()->sync($request->tags);
 
-        return redirect('/dashboard') -> with('mssg', 'Post published!');
+        return redirect('/dashboard/posts') -> with('mssg', 'Post published!');
     }
 
 
@@ -56,18 +64,48 @@ class BlogPostController extends Controller
 
     public function edit($id)
     {
-        //
+        $data = News::with('tags')->findOrFail($id);
+        $tags = Tag::all();
+
+        return view('admin.blog.edit', [
+            'news' => $data,
+            'tags' => $tags
+        ]);
     }
 
 
     public function update(Request $request, $id)
     {
-        //
+        $this->validate($request, [
+            'title'  => 'required',
+            'content' => 'required',
+            'writtenBy' => 'required',
+            'description' => 'required'
+        ]);
+
+        $post = News::find($id);
+
+        $post -> title = $request->input('title');
+        $post -> content = $request->input('content');
+        $post -> writtenBy = $request->input('writtenBy');
+        $post -> description = $request->input('description');
+        $post -> smallPic = $request->input('smallPic');
+        $post -> picture = $request->input('picture');
+        $post -> published = $request->input('published');
+        $post -> tags()->sync($request->tags);
+
+        $post -> save();
+
+        return redirect('/dashboard/posts') -> with('mssg', 'Post updated!');
+
     }
 
 
     public function destroy($id)
     {
-        //
+        $post = News::findOrFail($id);
+        $post->delete();
+
+        return redirect('/dashboard/posts') -> with('mssg', 'Post deleted!');
     }
 }

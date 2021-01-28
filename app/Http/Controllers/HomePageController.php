@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class HomePageController extends Controller
 {
     function index(){
-        $articles = News::latest()->take(3)->get();;
+        $articles = News::latest()->take(3)->get();
 
         return view('home',
             ['articles' => $articles]);

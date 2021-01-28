@@ -6,7 +6,7 @@
                 <img src="{{$product['image']}}" alt="">
                 <h2 class="item-title">{{$product['name']}}</h2>
                 <p>{{$product['price']}} sickles</p>
-                <p>{{$product['itemDescription']}}</p>
+                <p>{!! $product->itemDescription !!}</p>
                 <button>BUY</button>
             </div>
             <div class="category-container">

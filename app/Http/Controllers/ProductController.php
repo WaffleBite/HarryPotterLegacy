@@ -42,6 +42,13 @@ class ProductController extends Controller
 
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'name'  => 'required',
+            'price' => 'required',
+            'itemDescription' => 'required',
+            'categorySlug' => 'required'
+        ]);
+
         $product = new Product();
 
         $product -> name = $request->input('name');
@@ -53,5 +60,47 @@ class ProductController extends Controller
         $product -> save();
 
         return redirect('/dashboard/products') -> with('mssg', 'Product created!');
+    }
+
+    public function edit($id)
+    {
+        $product = Product::findOrFail($id);
+        $data = Category::all();
+
+        return view('admin.shop.edit', [
+            'product' => $product,
+            'categories' => $data
+        ]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $this->validate($request, [
+            'name'  => 'required',
+            'price' => 'required',
+            'itemDescription' => 'required',
+            'categorySlug' => 'required'
+        ]);
+
+        $product = Product::find($id);
+
+        $product -> name = $request->input('name');
+        $product -> price = $request->input('price');
+        $product -> itemDescription = $request->input('itemDescription');
+        $product -> categorySlug = $request->input('categorySlug');
+        $product -> image = $request->input('image');
+
+        $product -> save();
+
+        return redirect('/dashboard/products') -> with('mssg', 'Product updated!');
+    }
+
+    public function destroy($id)
+    {
+        $product = Product::findOrFail($id);
+
+        $product->delete();
+
+        return redirect('/dashboard/products') -> with('mssg', 'Product deleted!');
     }
 }

@@ -20,7 +20,7 @@
         </style>
 
     </head>
-    <body class="antialiased" style="background: url('../images/background.jpg'); background-size: cover">
+    <body class="antialiased" style="background: url('../images/site_background.jpg'); background-size: cover">
         <header>
             <nav class="navbar">
                 <div class="nav-container">
