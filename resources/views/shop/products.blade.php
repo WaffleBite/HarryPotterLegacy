@@ -8,7 +8,7 @@
             <div class="product-container">
                 @foreach($products as $item)
                         <a href="/shop/{{$item['id']}}">
-                            <img src="{{$item['image'] }}" alt="">
+                            <img src="{{Storage::disk('local')->url($item->image)}}" alt="{{$item['name']}}">
                             <h2>{{$item['name']}}</h2>
                             <p>{{$item['price']}} sickles</p>
                         </a>

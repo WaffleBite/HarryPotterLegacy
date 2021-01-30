@@ -5,7 +5,7 @@
 <div id="news-section">
     @foreach($articles as $item)
         <div>
-            <div class="newsImage"><img src="{{$item->picture}}" alt="{{$item->title}}"></div>
+            <div class="newsImage"><img src="{{Storage::disk('local')->url($item->smallPic)}}" alt="{{$item->title}}"></div>
             <a href="/news/{{$item['id']}}"><h2>{{$item['title']}}</h2></a>
             <p>{{$item->description}}</p>
         </div>

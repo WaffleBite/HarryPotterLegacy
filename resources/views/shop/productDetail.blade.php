@@ -3,7 +3,7 @@
 @section('content')
         <div id="shop" class="shop-container max-width mx-auto sm:px-6 lg:px-8">
             <div class="item-container">
-                <img src="{{$product['image']}}" alt="">
+                <img src="{{Storage::disk('local')->url($product->image)}}" alt="{{$product['name']}}">
                 <h2 class="item-title">{{$product['name']}}</h2>
                 <p>{{$product['price']}} sickles</p>
                 <p>{!! $product->itemDescription !!}</p>

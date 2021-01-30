@@ -8,7 +8,7 @@
                 <small>{{$news->created_at->format('Y-m-d')}}</small>
             </div>
             <div class="news-image">
-                <img src="{{$news->picture}}" alt="">
+                <img src="{{Storage::disk('local')->url($news->picture)}}" alt="">
             </div>
             <div class="news-content"><p>{!! $news->content !!}}</p></div>
         </div>
@@ -18,7 +18,7 @@
             <div class="random-news">
                 @foreach($random as $random)
                     <div class="newsArticle article-center">
-                        <div class="newsImage"><img src="{{$random->picture}}" alt="{{$random->title}}"></div>
+                        <div class="newsImage"><img src="{{Storage::disk('local')->url($random->smallPic)}}" alt="{{$random->title}}"></div>
                         <div>
                             <a href="/news/{{$random['id']}}"><h2 class="news-article-title">{{$random['title']}}</h2></a>
                             <p>{{$random->description}}</p>

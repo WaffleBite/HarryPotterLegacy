@@ -6,7 +6,7 @@
     <div class="content-wrapper">
         <h1>Create a product</h1>
         @include('includes.messages')
-        <form role="form" action="/dashboard/products" method='POST'>
+        <form role="form" action="/dashboard/products" method='POST' enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="form-group">
@@ -34,8 +34,8 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="image">Image</label>
-                        <input type="text" name="image" class="form-control" id="image">
+                        <label for="image">Image</label> <br>
+                        <input type="file" name="image" id="image">
                     </div>
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Post</button>

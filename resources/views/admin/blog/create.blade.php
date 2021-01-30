@@ -12,7 +12,7 @@
         <h1>Create a blog post</h1>
     @include('includes.messages')
 
-        <form role="form" action="/dashboard/posts" method='POST'>
+        <form role="form" action="/dashboard/posts" method='POST' enctype="multipart/form-data">
             @csrf
             <div class="card-body">
                 <div class="form-group">
@@ -32,17 +32,13 @@
                         <label for="writtenBy">Written By</label>
                         <input type="text" name="writtenBy" class="form-control" id="writtenBy">
                     </div>
-                    <!-- <div class="custom-file">
-                        <label class="custom-file-label" for="picture">Choose image</label>
-                        <input type="file" name="picture" class="custom-file-input" id="picture">
-                    </div> -->
                     <div class="form-group">
                         <label for="smallPic">Thumbnail Picture</label>
-                        <input type="text" name="smallPic" class="form-control" id="smallPic" placeholder="picture will be 240x159">
+                        <input type="file" name="smallPic" id="smallPic">
                     </div>
                     <div class="form-group">
                         <label for="picture">Picture</label>
-                        <input type="text" name="picture" class="form-control" id="picture">
+                        <input type="file" name="picture" id="picture">
                     </div>
                     <div class="form-group" style="margin-top:18px;">
                         <label>Select Tags</label>

@@ -6,7 +6,7 @@
     <div class="content-wrapper">
         <h1>Edit product "{{$product->name}}"</h1>
         @include('includes.messages')
-        <form role="form" action="{{route('product.update' , $product->id)}}" method='POST'>
+        <form role="form" action="{{route('product.update' , $product->id)}}" method='POST' enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="card-body">
@@ -35,8 +35,9 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="image">Image</label>
-                        <input type="text" name="image" class="form-control" id="image">
+                        <label for="image">Image</label> <br>
+                        <img style="width: 300px" src="{{Storage::disk('local')->url($product->image)}}"> <br><br>
+                        <input type="file" name="image" id="image">
                     </div>
                     <div class="box-footer">
                         <button type="submit" class="btn btn-primary">Post</button>
@@ -53,5 +54,5 @@
             toolbar: 'undo redo | fontselect fontsizeselect | removeformat | bold italic | alignleft aligncenter alignright alignjustify | ' +
                 'outdent indent | numlist bullist | emoticons'
         });
-    </script>s
+    </script>
 @endsection

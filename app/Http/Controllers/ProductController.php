@@ -46,16 +46,22 @@ class ProductController extends Controller
             'name'  => 'required',
             'price' => 'required',
             'itemDescription' => 'required',
-            'categorySlug' => 'required'
+            'categorySlug' => 'required',
+            'image' => 'required'
         ]);
+
+        if($request->hasFile('image'))
+        {
+            $imageName = $request -> image->store('public');
+        }
 
         $product = new Product();
 
+        $product -> image = $imageName;
         $product -> name = $request->input('name');
         $product -> price = $request->input('price');
         $product -> itemDescription = $request->input('itemDescription');
         $product -> categorySlug = $request->input('categorySlug');
-        $product -> image = $request->input('image');
 
         $product -> save();
 
@@ -84,11 +90,18 @@ class ProductController extends Controller
 
         $product = Product::find($id);
 
+        if($request->hasFile('image'))
+        {
+            $imageName = $request -> image->store('public');
+            $product -> image = $imageName;
+        }else{
+            $request->except(['image']);
+        }
+
         $product -> name = $request->input('name');
         $product -> price = $request->input('price');
         $product -> itemDescription = $request->input('itemDescription');
         $product -> categorySlug = $request->input('categorySlug');
-        $product -> image = $request->input('image');
 
         $product -> save();
 

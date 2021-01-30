@@ -37,11 +37,23 @@ class BlogPostController extends Controller
             'title'  => 'required',
             'content' => 'required',
             'writtenBy' => 'required',
-            'description' => 'required'
+            'description' => 'required',
+            'picture' => 'required',
+            'smallPic' => 'required'
         ]);
+
+        if ($request->hasFile('picture')) {
+            $pictureName = $request->picture->store('public');
+        }
+
+        if ($request->hasFile('smallPic')) {
+            $smallPicName = $request->smallPic->store('public');
+        }
 
         $post = new News();
 
+        $post -> picture = $pictureName;
+        $post -> smallPic = $smallPicName;
         $post -> title = $request->input('title');
         $post -> content = $request->input('content');
         $post -> writtenBy = $request->input('writtenBy');
@@ -85,12 +97,25 @@ class BlogPostController extends Controller
 
         $post = News::find($id);
 
+        if($request->hasFile('picture'))
+        {
+            $pictureName = $request->picture->store('public');
+            $post -> picture = $pictureName;
+        }else{
+            $request->except(['picture']);
+        }
+        if($request->hasFile('smallPic'))
+        {
+            $smallPicName = $request->smallPic->store('public');
+            $post -> smallPic = $smallPicName;
+        }else{
+            $request->except(['smallPic']);
+        }
+
         $post -> title = $request->input('title');
         $post -> content = $request->input('content');
         $post -> writtenBy = $request->input('writtenBy');
         $post -> description = $request->input('description');
-        $post -> smallPic = $request->input('smallPic');
-        $post -> picture = $request->input('picture');
         $post -> published = $request->input('published');
         $post -> tags()->sync($request->tags);
 

@@ -12,7 +12,7 @@
         <h1>Edit post "{{$news->title}}"</h1>
         @include('includes.messages')
 
-        <form role="form" action="{{route('news.update', $news->id)}}" method='POST'>
+        <form role="form" action="{{route('news.update', $news->id)}}" method='POST' enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="card-body">
@@ -33,14 +33,19 @@
                         <label for="writtenBy">Written By</label>
                         <input value="{{$news->writtenBy}}" type="text" name="writtenBy" class="form-control" id="writtenBy">
                     </div>
-                    <div class="form-group">
-                        <label for="smallPic">Thumbnail Picture</label>
-                        <input value="{{$news->smallPic}}" type="text" name="smallPic" class="form-control" id="smallPic" placeholder="picture will be 240x159">
+                    <div style="display: flex; justify-content: space-evenly;">
+                        <div class="form-group">
+                            <label for="smallPic">Thumbnail Picture</label> <br>
+                            <img style="width: 300px" src="{{Storage::disk('local')->url($news->smallPic)}}"> <br><br>
+                            <input type="file" name="smallPic" id="smallPic">
+                        </div>
+                        <div class="form-group">
+                            <label for="picture">Picture</label> <br>
+                            <img style="width: 300px" src="{{Storage::disk('local')->url($news->picture)}}"> <br><br>
+                            <input type="file" name="picture" id="picture">
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="picture">Picture</label>
-                        <input value="{{$news->picture}}" type="text" name="picture" class="form-control" id="picture">
-                    </div>
+
                     <div class="form-group" style="margin-top:18px;">
                         <label>Select Tags</label>
                         <select name="tags[]" class="form-control select2 select2-hidden-accessible" multiple="" data-placeholder="Select a tag" style="width: 100%;" tabindex="-1" aria-hidden="true">
