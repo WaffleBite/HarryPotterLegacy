@@ -1,7 +1,12 @@
+body{
+    background: url("../images/site_background.jpg");
+    background-size: cover;
+}
+
 #home-header {
     background: url("../images/header.jpg");
     background-size: cover;
-    background-position-y: -263px;
+    background-position-y: -322px;
 }
 
 #shop-header {

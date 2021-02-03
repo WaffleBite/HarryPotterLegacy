@@ -14,19 +14,13 @@
             <div class="product-container">
                 @foreach($listProducts as $item)
                     <a href="/shop/{{$item['id']}}">
-                        <img src="{{Storage::disk('local')->url($item->image)}}" alt="{{$item['name']}}">
+                        <img class="img-hover" src="{{Storage::disk('local')->url($item->image)}}" alt="{{$item['name']}}">
                         <h2>{{$item['name']}}</h2>
                         <p>{{$item['price']}} sickles</p>
                     </a>
                 @endforeach
             </div>
-            <div class="category-container">
-                @foreach($categories as $category)
-                    <a href="/shop/category/{{$category['slug']}}">
-                        <h3>{{$category->name}}</h3>
-                    </a>
-                @endforeach
-            </div>
+            @include('shop.category-menu')
         </div>
     </div>
 @endsection

@@ -20,7 +20,7 @@
         </style>
 
     </head>
-    <body class="antialiased" style="background: url('../images/site_background.jpg'); background-size: cover">
+    <body class="antialiased">
         <header>
             <nav class="navbar">
                 <div class="nav-container">
@@ -30,7 +30,7 @@
                             <a class="nav-item nav-link" href="{{route('home')}}">Home</a>
                             <a class="nav-item nav-link" href="{{route('shop.index')}}">Diagon Alley</a>
                             <a class="nav-item nav-link" href="{{route('news.index')}}">The Daily Prophet</a>
-                            <a class="nav-item nav-link" href="/news">Potions Lab</a>
+                            <a class="nav-item nav-link" href="{{route('potionslab.index')}}">Potions Lab</a>
                         </ul>
                     </div>
 
@@ -46,8 +46,12 @@
                         @else
                             <ul class="nav-item dropdown">
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a href="{{ url('/dashboard') }}" class="dropdown-item">Dashboard</a>
-
+                                    @can('manage-blog')
+                                        <a href="{{route('dashboard')}}" class="dropdown-item">Dashboard</a>
+                                    @endcan
+                                    @can('user')
+                                         <a href="{{route('user.account')}}">Account</a>
+                                    @endcan
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                  document.getElementById('logout-form').submit();">

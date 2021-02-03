@@ -17,23 +17,25 @@
 }
 .shop-container {
     display: grid;
-    grid-template-columns: 73% 13%;
-    gap: 50px;
+    grid-template-columns: 77% 20%;
+    gap: 44px;
 
     .product-container{
         display: grid;
-        grid-template-columns: repeat(3, 300px);
-        gap: 30px;
+        grid-template-columns: repeat(3, 353px);
 
         a{
             margin-bottom: 55px;
         }
         img {
-            height: 250px;
-            width: 300px;
+            height: 240px;
+            width: 345px;
         }
         h2, p {
             margin: 0;
+        }
+        h2:hover{
+            color: #a0eeff;
         }
     }
     .category-container{
@@ -41,13 +43,67 @@
         h3{
             font-size: 30px;
             margin: 0;
+            &:hover {
+                color: #e28d81;
+            }
+        }
+    }
+}
+
+.buy-button {
+    padding: 10px 50px;
+    background-color: #4C5343;
+    color: white;
+    font-family: 'Open Sans';
+    font-weight: 500;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 40px;
+
+    &:hover{
+        background-color: #6e7563;
+    }
+}
+
+//-----------------------------------------------order page
+#order {
+    margin-top: 110px;
+    margin-bottom: 110px;
+    .max-width{
+        background: rgba(49, 54, 44, 0.83);
+        h1{
+            text-align: center;
+        }
+        .order-container{
+            text-align: center;
+            p{
+                margin: 5px;
+            }
+        }
+        .details-container{
+            margin-top: 50px;
+            select{
+                width: 70%;
+                padding: 5px;
+                border: none;
+                border-radius: 5px;
+                margin-top: 6px;
+            }
         }
     }
 }
 
 //-----------------------------------------------news page
+.img-hover{
+    transition: 0.3s;
+    &:hover {
+        opacity: 0.8;
+    }
+}
+
 .news-article-title{
-    color: #77DEFF;
+    color: #a0eeff;
+    line-height: 23px;
     &:hover {
         color: #2dafe1;
     }
@@ -119,6 +175,9 @@
     .news-content{
         text-align: justify;
         margin-top: 50px;
+        ul, li{
+            list-style: disc;
+        }
         b, strong {
             color: #77deff;
         }
@@ -191,24 +250,17 @@
         line-height: 190%;
         width: 800px;
     }
-    button {
-        padding: 10px 50px;
-        background-color: #4C5343;
-        color: white;
-        font-family: 'Open Sans';
-        font-weight: 500;
-        font-size: 1rem;
-        cursor: pointer;
-        margin-top: 40px;
-
-        &:hover{
-            background-color: #6e7563;
-        }
-    }
 }
 
 //----------------------------------------------- home page
-
+#home-header h1 {
+    width: fit-content;
+    margin: auto;
+    line-height: 79vh;
+    font-size: 6rem;
+    color: #b1955b;
+    color: #d0a752;
+}
 #news-section{
     display: grid;
     grid-template-columns: repeat(3, 293px);
@@ -216,12 +268,7 @@
     background-color: #31362C;
     padding: 50px;
     justify-content: center;
-    h2{
-        font-family: "Rasa", serif;
-        margin: 8px 0;
-        color: #a0eeff;
-        font-size: 1.6rem;
-    }
+
     p{
         font-family: "Open Sans";
         font-weight: 300;
@@ -268,5 +315,178 @@
     }
     .game-description-container {
         padding: 50px 395px;
+    }
+}
+
+//------------------------------------User account
+.user-container {
+    display: grid;
+    background: aliceblue;
+    gap: 50px;
+    grid-template-columns: 24% 69%;
+    margin: 50px 100px;
+    .left-content, .right-content {
+        padding: 20px 20px;
+    }
+    .left-content{
+        p{
+            margin: 0 0 16px 0;
+        }
+        .account-menu {
+            display: flex;
+            flex-direction: column;
+            a{
+                width: fit-content;
+            }
+        }
+    }
+    .right-content {
+        form{
+            input{
+                padding: 7px;
+                margin: 10px 0;
+            }
+            button{
+                padding: 10px;
+                margin-top: 20px;
+                background: #303642;
+                color: white;
+                border-radius: 4px;
+            }
+        }
+    }
+    p{
+        color: #2f2f2f !important;
+    }
+    h2{
+        color: #2f2f2f !important;
+    }
+    .orders{
+        h2{width: fit-content; margin: 3px 0}
+        p{margin: 0}
+    }
+}
+
+//------------------------------------register & login
+#register {
+    background: #e0e0e0;
+    form{
+        margin: auto;
+        width: fit-content;
+        padding: 27px;
+        h1{
+            color: #262626;
+        }
+        input{
+            padding: 7px;
+            margin: 10px 0;
+        }
+        button{
+            padding: 10px;
+            margin-top: 20px;
+            background: #303642;
+            color: white;
+            border-radius: 4px;
+            margin-left: 0;
+            cursor: pointer;
+            &:hover {
+                background-color: #424958;
+            }
+        }
+    }
+}
+
+//-----------------------------------potions lab
+#potions-lab{
+    margin: auto;
+}
+#ingredients{
+    height: fit-content;
+    width: fit-content;
+    display: flex;
+    padding: 100px 20px 50px 20px;
+    margin: auto;
+}
+
+.cauldron{
+    display: flex;
+    padding: 10px;
+    width: 500px;
+    height: 100px;
+    background-color: antiquewhite;
+    padding: 40px 20px 20px 20px;
+    margin: auto;
+}
+
+.ingredient {
+    height: 50px;
+    width: 50px;
+    margin:10px;
+    background: grey;
+}
+
+.tooltiptext {
+    visibility: hidden;
+    width: fit-content;
+    background-color: #4c5343;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 10px;
+    position: absolute;
+    z-index: 1;
+    bottom: 91%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.buttons {
+    margin: auto;
+    width: fit-content;
+    .mix-button{
+        padding: 10px 0;
+        background-color: #4C5343;
+        color: white;
+        font-family: 'Open Sans';
+        font-weight: 500;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 40px;
+        width: 215px;
+
+        &:hover{
+            background-color: #6e7563;
+        }
+    }
+    .redo-button{
+        padding: 10px 0;
+        background-color: #10100f;
+        color: white;
+        font-family: 'Open Sans';
+        font-weight: 500;
+        font-size: 1rem;
+        cursor: pointer;
+        margin-top: 40px;
+        width: 215px;
+
+        &:hover{
+            background-color: #393937;
+        }
+    }
+}
+
+#generated-potion{
+    margin: auto;
+    width: fit-content;
+    h1, h2{
+        text-align: center;
+        margin: 5px 0;
     }
 }

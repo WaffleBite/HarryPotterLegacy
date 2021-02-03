@@ -1,12 +1,12 @@
 @extends('layouts.welcome')
 
 @section('content')
-<div id="home-header"></div>
+<div id="home-header"><h1>Harry Potter Legacy</h1></div>
 <div id="news-section">
     @foreach($articles as $item)
         <div>
-            <div class="newsImage"><img src="{{Storage::disk('local')->url($item->smallPic)}}" alt="{{$item->title}}"></div>
-            <a href="/news/{{$item['id']}}"><h2>{{$item['title']}}</h2></a>
+            <div class="newsImage"><img class="img-hover" src="{{Storage::disk('local')->url($item->smallPic)}}" alt="{{$item->title}}"></div>
+            <a href="/news/{{$item['id']}}"><h2 class="news-article-title">{{$item['title']}}</h2></a>
             <p>{{$item->description}}</p>
         </div>
 

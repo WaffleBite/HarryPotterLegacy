@@ -7,16 +7,10 @@
                 <h2 class="item-title">{{$product['name']}}</h2>
                 <p>{{$product['price']}} sickles</p>
                 <p>{!! $product->itemDescription !!}</p>
-                <button>BUY</button>
+                @can('user')
+                    <a href='{{route('order.index', ['id' => $product->id])}}'><button class="buy-button">BUY</button></a>
+                @endcan
             </div>
-            <div class="category-container">
-
-                @foreach($categories as $category)
-                    <a href="/shop/category/{{$category['slug']}}">
-                        <h3>{{$category->name}}</h3>
-                    </a>
-                @endforeach
-
-            </div>
+            @include('shop.category-menu')
         </div>
 @endsection

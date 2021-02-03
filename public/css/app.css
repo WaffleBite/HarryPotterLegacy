@@ -14,23 +14,25 @@
 
 .shop-container {
   display: grid;
-  grid-template-columns: 73% 13%;
-  gap: 50px;
+  grid-template-columns: 77% 20%;
+  gap: 44px;
 }
 .shop-container .product-container {
   display: grid;
-  grid-template-columns: repeat(3, 300px);
-  gap: 30px;
+  grid-template-columns: repeat(3, 353px);
 }
 .shop-container .product-container a {
   margin-bottom: 55px;
 }
 .shop-container .product-container img {
-  height: 250px;
-  width: 300px;
+  height: 240px;
+  width: 345px;
 }
 .shop-container .product-container h2, .shop-container .product-container p {
   margin: 0;
+}
+.shop-container .product-container h2:hover {
+  color: #a0eeff;
 }
 .shop-container .category-container {
   text-align: center;
@@ -39,9 +41,61 @@
   font-size: 30px;
   margin: 0;
 }
+.shop-container .category-container h3:hover {
+  color: #e28d81;
+}
+
+.buy-button {
+  padding: 10px 50px;
+  background-color: #4C5343;
+  color: white;
+  font-family: "Open Sans";
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 40px;
+}
+.buy-button:hover {
+  background-color: #6e7563;
+}
+
+#order {
+  margin-top: 110px;
+  margin-bottom: 110px;
+}
+#order .max-width {
+  background: rgba(49, 54, 44, 0.83);
+}
+#order .max-width h1 {
+  text-align: center;
+}
+#order .max-width .order-container {
+  text-align: center;
+}
+#order .max-width .order-container p {
+  margin: 5px;
+}
+#order .max-width .details-container {
+  margin-top: 50px;
+}
+#order .max-width .details-container select {
+  width: 70%;
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  margin-top: 6px;
+}
+
+.img-hover {
+  transition: 0.3s;
+}
+.img-hover:hover {
+  opacity: 0.8;
+}
 
 .news-article-title {
-  color: #77DEFF;
+  color: #a0eeff;
+  line-height: 23px;
 }
 .news-article-title:hover {
   color: #2dafe1;
@@ -121,6 +175,9 @@
   text-align: justify;
   margin-top: 50px;
 }
+.news-container .news-content ul, .news-container .news-content li {
+  list-style: disc;
+}
 .news-container .news-content b, .news-container .news-content strong {
   color: #77deff;
 }
@@ -191,18 +248,16 @@
   line-height: 190%;
   width: 800px;
 }
-.item-container button {
-  padding: 10px 50px;
-  background-color: #4C5343;
-  color: white;
-  font-family: "Open Sans";
-  font-weight: 500;
-  font-size: 1rem;
-  cursor: pointer;
-  margin-top: 40px;
-}
-.item-container button:hover {
-  background-color: #6e7563;
+
+#home-header h1 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  line-height: 79vh;
+  font-size: 6rem;
+  color: #b1955b;
+  color: #d0a752;
 }
 
 #news-section {
@@ -212,12 +267,6 @@
   background-color: #31362C;
   padding: 50px;
   justify-content: center;
-}
-#news-section h2 {
-  font-family: "Rasa", serif;
-  margin: 8px 0;
-  color: #a0eeff;
-  font-size: 1.6rem;
 }
 #news-section p {
   font-family: "Open Sans";
@@ -263,4 +312,186 @@
 }
 #description .game-description-container {
   padding: 50px 395px;
+}
+
+.user-container {
+  display: grid;
+  background: aliceblue;
+  gap: 50px;
+  grid-template-columns: 24% 69%;
+  margin: 50px 100px;
+}
+.user-container .left-content, .user-container .right-content {
+  padding: 20px 20px;
+}
+.user-container .left-content p {
+  margin: 0 0 16px 0;
+}
+.user-container .left-content .account-menu {
+  display: flex;
+  flex-direction: column;
+}
+.user-container .left-content .account-menu a {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.user-container .right-content form input {
+  padding: 7px;
+  margin: 10px 0;
+}
+.user-container .right-content form button {
+  padding: 10px;
+  margin-top: 20px;
+  background: #303642;
+  color: white;
+  border-radius: 4px;
+}
+.user-container p {
+  color: #2f2f2f !important;
+}
+.user-container h2 {
+  color: #2f2f2f !important;
+}
+.user-container .orders h2 {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 3px 0;
+}
+.user-container .orders p {
+  margin: 0;
+}
+
+#register {
+  background: #e0e0e0;
+}
+#register form {
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding: 27px;
+}
+#register form h1 {
+  color: #262626;
+}
+#register form input {
+  padding: 7px;
+  margin: 10px 0;
+}
+#register form button {
+  padding: 10px;
+  margin-top: 20px;
+  background: #303642;
+  color: white;
+  border-radius: 4px;
+  margin-left: 0;
+  cursor: pointer;
+}
+#register form button:hover {
+  background-color: #424958;
+}
+
+#potions-lab {
+  margin: auto;
+}
+
+#ingredients {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  padding: 100px 20px 50px 20px;
+  margin: auto;
+}
+
+.cauldron {
+  display: flex;
+  padding: 10px;
+  width: 500px;
+  height: 100px;
+  background-color: antiquewhite;
+  padding: 40px 20px 20px 20px;
+  margin: auto;
+}
+
+.ingredient {
+  height: 50px;
+  width: 50px;
+  margin: 10px;
+  background: grey;
+}
+
+.tooltiptext {
+  visibility: hidden;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  background-color: #4c5343;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  bottom: 91%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 1s;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+
+.buttons {
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+.buttons .mix-button {
+  padding: 10px 0;
+  background-color: #4C5343;
+  color: white;
+  font-family: "Open Sans";
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 40px;
+  width: 215px;
+}
+.buttons .mix-button:hover {
+  background-color: #6e7563;
+}
+.buttons .redo-button {
+  padding: 10px 0;
+  background-color: #10100f;
+  color: white;
+  font-family: "Open Sans";
+  font-weight: 500;
+  font-size: 1rem;
+  cursor: pointer;
+  margin-top: 40px;
+  width: 215px;
+}
+.buttons .redo-button:hover {
+  background-color: #393937;
+}
+
+#generated-potion {
+  margin: auto;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+#generated-potion h1, #generated-potion h2 {
+  text-align: center;
+  margin: 5px 0;
 }
