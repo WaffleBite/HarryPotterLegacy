@@ -85,6 +85,16 @@
   border-radius: 5px;
   margin-top: 6px;
 }
+#order .order-error {
+  text-align: center;
+  padding: 20px;
+}
+#order .order-error h1 {
+  margin-top: 0;
+}
+#order .order-error h2 {
+  color: #ff9595;
+}
 
 .img-hover {
   transition: 0.3s;
@@ -335,6 +345,7 @@
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  margin: 5px 0;
 }
 .user-container .right-content form input {
   padding: 7px;
@@ -346,6 +357,19 @@
   background: #303642;
   color: white;
   border-radius: 4px;
+}
+.user-container .right-content .character-list {
+  margin-bottom: 20px;
+}
+.user-container .right-content .character-list h3 {
+  color: #242424;
+  font-size: 30px;
+  margin: 0;
+}
+.user-container .buy-sickles select {
+  padding: 10px 0;
+  width: 140px;
+  margin-top: 15px;
 }
 .user-container p {
   color: #2f2f2f !important;

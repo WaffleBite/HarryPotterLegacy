@@ -5,5 +5,6 @@
         <a href="{{route('user.editMyAccount')}}">Edit my account</a>
         <a href="{{route('order.all')}}">My orders</a>
         <a href="{{route('user.characters')}}">My Characters</a>
+        <a href="{{route('user.buy.sickles')}}">Buy sickles</a>
     </div>
 </div>

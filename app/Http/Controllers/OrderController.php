@@ -52,13 +52,38 @@ class OrderController extends Controller
         ]);
     }
 
+    public function updatesickles(Request $request){
+        $user = Auth::user();
+
+        $availableMoney = $user->sickles;
+        $addSickles = $request->input('sickles');
+
+        $user -> sickles = $availableMoney + $addSickles;
+        $user -> save();
+
+        return redirect() -> route('user.account')-> with('mssg', 'Congratulations, spend your money well!');
+    }
+
     public function store(Request $request)
     {
-        $order = Order::create([
-            'user_id' => auth()->user()->id,
-            'product_id' => $request->route('id')
-        ]);
+        $product = Product::find($request->route('id'));
+        $availableMoney = Auth::user()->sickles;
+        $productPrice = $product->price;
+        $availableTotal = $availableMoney - $productPrice;
 
-        return redirect()->route('order.show', ['id' => $order->id]);
+        if(Auth::user()->sickles >= $productPrice){
+            $user = Auth::user();
+            $user -> sickles = $availableTotal;
+            $user -> save();
+
+            $order = Order::create([
+                'user_id' => auth()->user()->id,
+                'product_id' => $request->route('id')
+            ]);
+            return redirect()->route('order.show', ['id' => $order->id]);
+        }else{
+            return redirect()->route('order.error') -> with('mssg', 'You don´t have enough sickles!');
+        }
+
     }
 }

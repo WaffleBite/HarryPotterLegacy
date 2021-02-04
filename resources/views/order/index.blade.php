@@ -17,7 +17,7 @@
                         <p style="border-bottom: 1px solid; width: fit-content">Your details</p>
                         <li>Name: {{Auth::user()->name}}</li>
                         <li>E-mail: {{Auth::user()->email}}</li>
-                        <li>Available sickles: 10 600 sickles</li>
+                        <li>Available sickles: {{Auth::user()->sickles}} sickles</li>
                     </div>
                     <button type="submit" class="buy-button">BUY</button>
                 </form>

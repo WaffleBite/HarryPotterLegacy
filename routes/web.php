@@ -31,6 +31,9 @@ Route::get('/createorder/id/{id}', [OrderController::class, 'index']) ->name('or
 Route::post('/createorder/id/{id}', [OrderController::class, 'store'])->name('order.store');
 Route::get('/order/id/{id}', [OrderController::class, 'show']) ->name('order.show');
 Route::get('/orders', [OrderController::class, 'showOrders']) ->name('order.all');
+Route::get('/order/error', function () {
+    return view('order.error');
+})->middleware(['auth'])->name('order.error');
 
 //------blog
 Route::get('/news', [NewsController::class, 'index'])->name('news.index');
@@ -44,9 +47,13 @@ Route::get('/potions-lab', [PotionsLabController::class, 'index'])->name('potion
 Route::get('/my-account', function () {
     return view('user.account');
 })->middleware(['auth'])->name('user.account');
-Route::get('/my-characters', [CharacterController::class, 'index'])->name('user.characters');
+Route::get('/my-characters', [CharacterController::class, 'index'])->middleware(['auth'])->name('user.characters');
 Route::get('/my-account/edit', [UserController::class, 'editMyDetails'])->name('user.editMyAccount');
 Route::put('/my-account/edit', [UserController::class, 'updateMyDetails'])->name('user.updateMyAccount');
+Route::get('/my-account/buy-sickles', function (){
+    return view('user.buy-sickles');
+})->middleware(['auth'])->name('user.buy.sickles');
+Route::put('/my-account/buy-sickles', [OrderController::class, 'updatesickles'])->name('user.update.sickles');
 
 
 //----------------------------------------------admin pages
