@@ -18,7 +18,7 @@
                      with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <i class="nav-icon fas fa-store"></i>
                         <p>
                             Shop
                             <i class="right fas fa-angle-left"></i>
@@ -41,7 +41,7 @@
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-copy"></i>
+                        <i class="nav-icon fas fa-newspaper"></i>
                         <p>
                             Blog
                             <i class="fas fa-angle-left right"></i>
@@ -64,7 +64,7 @@
                 </li>
                 <li class="nav-item has-treeview">
                     <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-tree"></i>
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
                             <i class="fas fa-angle-left right"></i>

@@ -3,36 +3,41 @@
 @section('content')
     <div id="potions-header"></div>
     <div id="potions-lab" class="max-width mx-auto sm:px-6 lg:px-8">
+        <h1>Welcome to the potions lab!</h1>
+        <p>If you find it hard to create potions, or just doesn´t want to use up your ingredients you gathered, you can use this lab to
+        experiment! Just select the ingredients you want and stir well! <br>Just don´t forget to clean up after yourself.</p>
         <div id="ingredients">
             @foreach($ingredients as $ingredient)
                 <div onclick="move(event)" class="tooltip ingredient" id="{{$ingredient->slug}}">
+                    <img width="120px" src="{{Storage::disk('local')->url($ingredient->image)}}">
                     <span class="tooltiptext">{{$ingredient->name}}</span>
                 </div>
             @endforeach
         </div>
 
-        <div class="cauldron" id="cauldron"></div>
-
-        <br><br>
-        <div class="buttons">
-            <button class="mix-button" onclick="mixIngredients()">Mix Ingredients</button>
-            <br>
-            <button class="redo-button" onclick="clearIngredients()">Redo</button>
-        </div>
-
-
-        <div id="generated-potion">
-            <div>
-                <h1 id="success-message"></h1>
-                <h2 id="message"></h2>
-                <p id="generatedPotionName"></p>
-                <p id="generatedPotionEffect"></p>
+        <div class="cauldron-container">
+            <div class="cauldron" id="cauldron"></div>
+            <div class="buttons">
+                <button class="mix-button" onclick="mixIngredients()">Mix Ingredients</button>
+                <br>
+                <button class="redo-button" onclick="clearIngredients()">Redo</button>
             </div>
-
-            <img id="generatedPotionImage" src="" alt="">
         </div>
     </div>
 
+    <div id="generated-potion">
+        <div>
+            <h1 id="success-message"></h1>
+            <h2 id="message"></h2>
+        </div>
+        <div class="potion">
+            <div>
+                <p style="font-weight: bold" id="generatedPotionName"></p>
+                <p id="generatedPotionEffect"></p>
+            </div>
+            <img id="generatedPotionImage" src="" alt="">
+        </div>
+    </div>
 
     <script>
         function mixIngredients(){
@@ -45,7 +50,10 @@
                 storedItems.push(className[i].id);
             }
 
-            console.log(storedItems);
+            let activeItems = document.getElementsByClassName('active');
+            for(let i = 0; i < activeItems.length; i++){
+                activeItems[i].style.display = 'none';
+            }
 
             let name = document.getElementById("generatedPotionName");
             let effect = document.getElementById("generatedPotionEffect");
@@ -58,8 +66,8 @@
                 document.getElementById('generated-potion').style.display = 'block';
                 @foreach($newMagicLearned as $newMagic)
                     name.innerHTML = "{{$newMagic['name']}}";
-                effect.innerHTML = "{{$newMagic['effect']}}";
-                image.src = "{{Storage::disk('local')->url($newMagic['image'])}}";
+                    effect.innerHTML = "{{$newMagic['effect']}}";
+                    image.src = "{{Storage::disk('local')->url($newMagic['image'])}}";
                 @endforeach
             }
 
@@ -69,8 +77,8 @@
                 document.getElementById('generated-potion').style.display = 'block';
                 @foreach($felixFelicis as $felix)
                     name.innerHTML = "{{$felix['name']}}";
-                effect.innerHTML = "{{$felix['effect']}}";
-                image.src = "{{Storage::disk('local')->url($felix['image'])}}";
+                    effect.innerHTML = "{{$felix['effect']}}";
+                    image.src = "{{Storage::disk('local')->url($felix['image'])}}";
                 @endforeach
             }
 
@@ -130,12 +138,8 @@
             }
              else {
                 document.getElementById('generated-potion').style.display = 'block';
-                failed()
+                document.getElementById("success-message").innerHTML = "Potion Failed!";
             }
-        }
-
-        function failed(){
-            document.getElementById("success-message").innerHTML = "Potion Failed!";
         }
 
         function clearIngredients(){
@@ -145,13 +149,12 @@
 
              for(let i = 0; i < active.length; i++){
                 destination.appendChild(active[i]);
+                active[i].style.display = 'block';
              }
              for(let i = 0; i < items.length; i++){
                  items[i].classList.remove('active');
              }
-
              resetPotion();
-            //location.reload();
         }
 
         function resetPotion(){

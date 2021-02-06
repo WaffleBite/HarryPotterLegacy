@@ -26,7 +26,7 @@
         <section class="content">
             <div class="card">
                 <div class="card-body">
-                    <p>Manage users. Only an admin can edit an user.</p>
+                    <p>Manage users. Only an admin can edit and delete an user.</p>
                     <h2 class="mssg">{{ session('mssg') }}</h2>
                     <div class="card">
                         <div class="card-body">

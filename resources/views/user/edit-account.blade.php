@@ -17,7 +17,6 @@
                     <label for="email">User E-mail</label><br>
                     <input value="{{$user->email}}" type="email" name="email" class="form-control" id="email">
                 </div>
-
                 <div class="box-footer">
                     <button type="submit">Update</button>
                 </div>

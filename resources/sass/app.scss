@@ -8,31 +8,38 @@
 
 //----------------------------------------------shop
 #shop {
-    margin-top: 110px;
     margin-bottom: 110px;
-    h2{
+    .category-name {
         font-size: 36px;
-        margin: 0;
+        text-align: center;
+    }
+    .item-info{
+        justify-self: center;
     }
 }
 .shop-container {
     display: grid;
-    grid-template-columns: 77% 20%;
+    grid-template-columns: 20% 77%;
     gap: 44px;
-
     .product-container{
         display: grid;
         grid-template-columns: repeat(3, 353px);
-
         a{
             margin-bottom: 55px;
-        }
-        img {
-            height: 240px;
-            width: 345px;
+            div{
+                height: 240px;
+                width: 345px;
+                overflow: hidden;
+                img {
+                    height: 240px;
+                }
+            }
         }
         h2, p {
             margin: 0;
+        }
+        h2 {
+            font-size: 2rem;
         }
         h2:hover{
             color: #a0eeff;
@@ -41,8 +48,11 @@
     .category-container{
         text-align: center;
         h3{
-            font-size: 30px;
+            font-size: 27px;
             margin: 0;
+            background: #32362c;
+            border-radius: 10px;
+            margin-bottom: 10px;
             &:hover {
                 color: #e28d81;
             }
@@ -244,7 +254,7 @@
 //----------------------------------------------item detail page
 .item-container {
     img{
-        max-width: 470px;
+        max-width: 570px;
     }
     .item-title {
         font-family: 'Rasa', serif;
@@ -420,7 +430,14 @@
 
 //-----------------------------------potions lab
 #potions-lab{
-    margin: auto;
+    h1, p{
+        text-align: center;
+    }
+    p{
+        width: 800px;
+        margin: auto;
+        color: #cccccc;
+    }
 }
 #ingredients{
     height: fit-content;
@@ -430,25 +447,14 @@
     margin: auto;
 }
 
-.cauldron{
-    display: flex;
-    padding: 10px;
-    width: 500px;
-    height: 100px;
-    background-color: antiquewhite;
-    padding: 40px 20px 20px 20px;
-    margin: auto;
-}
-
-.ingredient {
-    height: 50px;
-    width: 50px;
-    margin:10px;
-    background: grey;
+.tooltip:hover {
+    .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
 }
 
 .tooltiptext {
-    visibility: hidden;
     width: fit-content;
     background-color: #4c5343;
     color: #fff;
@@ -457,58 +463,82 @@
     padding: 10px;
     position: absolute;
     z-index: 1;
-    bottom: 91%;
+    bottom: 108%;
     left: 50%;
     margin-left: -60px;
     opacity: 0;
     transition: opacity 1s;
 }
-
-.tooltip:hover .tooltiptext {
-    visibility: visible;
-    opacity: 1;
+.ingredient {
+    width: fit-content;
+    margin: 10px;
+    height: fit-content;
+    position: relative;
 }
-
-.buttons {
+.cauldron-container {
+    display: flex;
     margin: auto;
     width: fit-content;
-    .mix-button{
-        padding: 10px 0;
-        background-color: #4C5343;
-        color: white;
-        font-family: 'Open Sans';
-        font-weight: 500;
-        font-size: 1rem;
-        cursor: pointer;
-        margin-top: 40px;
-        width: 215px;
-
-        &:hover{
-            background-color: #6e7563;
-        }
+    gap: 80px;
+    .cauldron{
+        display: flex;
+        align-content: flex-start;
+        flex-wrap: wrap;
+        width: 480px;
+        height: 480px;
     }
-    .redo-button{
-        padding: 10px 0;
-        background-color: #10100f;
-        color: white;
-        font-family: 'Open Sans';
-        font-weight: 500;
-        font-size: 1rem;
-        cursor: pointer;
-        margin-top: 40px;
-        width: 215px;
+    .buttons {
+        width: fit-content;
+        align-self: center;
+        .mix-button{
+            padding: 10px 0;
+            background-color: #4C5343;
+            color: white;
+            font-family: 'Open Sans';
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 215px;
 
-        &:hover{
-            background-color: #393937;
+            &:hover{
+                background-color: #6e7563;
+            }
+        }
+        .redo-button{
+            padding: 10px 0;
+            background-color: #10100f;
+            color: white;
+            font-family: 'Open Sans';
+            font-weight: 500;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 215px;
+
+            &:hover{
+                background-color: #393937;
+            }
         }
     }
 }
 
 #generated-potion{
-    margin: auto;
-    width: fit-content;
+    display: none;
+    margin: 55px 100px;
+    background: #32362cd6;
+    .potion{
+        display: flex;
+        p{
+            width: fit-content;
+        }
+    }
+    div{
+        width: fit-content;
+        margin: auto;
+        padding-top: 20px;
+    }
     h1, h2{
         text-align: center;
-        margin: 5px 0;
+        margin: 0;
     }
 }

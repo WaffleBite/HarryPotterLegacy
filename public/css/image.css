@@ -1,5 +1,5 @@
 body{
-    background: url("../images/site_background.jpg");
+    background: url("../images/site_background2.jpg");
     background-size: cover;
 }
 
@@ -27,4 +27,8 @@ body{
     background: url("../images/dailyProphet.jpg");
     background-size: cover;
     background-position-y: -436px;
+}
+#cauldron{
+    background: url("../images/cauldron.png");
+    background-size: cover;
 }

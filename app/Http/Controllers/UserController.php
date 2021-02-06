@@ -41,9 +41,11 @@ class UserController extends Controller
     public function editMyDetails()
     {
         $user = Auth::user();
+        $role = Role::all();
 
         return view('user.edit-account', [
-            'user' => $user
+            'user' => $user,
+            'role' => $role
         ]);
     }
 
@@ -55,11 +57,9 @@ class UserController extends Controller
         ]);
 
         $user = Auth::user();
-        $role = Role::where('name', 'user')->first();
 
         $user -> name = $request->input('name');
         $user -> email = $request->input('email');
-        $user->assignRole($role);
 
         $user -> save();
 

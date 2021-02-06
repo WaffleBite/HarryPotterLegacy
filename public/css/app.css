@@ -4,17 +4,19 @@
 }
 
 #shop {
-  margin-top: 110px;
   margin-bottom: 110px;
 }
-#shop h2 {
+#shop .category-name {
   font-size: 36px;
-  margin: 0;
+  text-align: center;
+}
+#shop .item-info {
+  justify-self: center;
 }
 
 .shop-container {
   display: grid;
-  grid-template-columns: 77% 20%;
+  grid-template-columns: 20% 77%;
   gap: 44px;
 }
 .shop-container .product-container {
@@ -24,12 +26,19 @@
 .shop-container .product-container a {
   margin-bottom: 55px;
 }
-.shop-container .product-container img {
+.shop-container .product-container a div {
   height: 240px;
   width: 345px;
+  overflow: hidden;
+}
+.shop-container .product-container a div img {
+  height: 240px;
 }
 .shop-container .product-container h2, .shop-container .product-container p {
   margin: 0;
+}
+.shop-container .product-container h2 {
+  font-size: 2rem;
 }
 .shop-container .product-container h2:hover {
   color: #a0eeff;
@@ -38,8 +47,11 @@
   text-align: center;
 }
 .shop-container .category-container h3 {
-  font-size: 30px;
+  font-size: 27px;
   margin: 0;
+  background: #32362c;
+  border-radius: 10px;
+  margin-bottom: 10px;
 }
 .shop-container .category-container h3:hover {
   color: #e28d81;
@@ -246,7 +258,7 @@
 }
 
 .item-container img {
-  max-width: 470px;
+  max-width: 570px;
 }
 .item-container .item-title {
   font-family: "Rasa", serif;
@@ -417,8 +429,13 @@
   background-color: #424958;
 }
 
-#potions-lab {
+#potions-lab h1, #potions-lab p {
+  text-align: center;
+}
+#potions-lab p {
+  width: 800px;
   margin: auto;
+  color: #cccccc;
 }
 
 #ingredients {
@@ -433,25 +450,12 @@
   margin: auto;
 }
 
-.cauldron {
-  display: flex;
-  padding: 10px;
-  width: 500px;
-  height: 100px;
-  background-color: antiquewhite;
-  padding: 40px 20px 20px 20px;
-  margin: auto;
-}
-
-.ingredient {
-  height: 50px;
-  width: 50px;
-  margin: 10px;
-  background: grey;
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
 
 .tooltiptext {
-  visibility: hidden;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
@@ -462,25 +466,46 @@
   padding: 10px;
   position: absolute;
   z-index: 1;
-  bottom: 91%;
+  bottom: 108%;
   left: 50%;
   margin-left: -60px;
   opacity: 0;
   transition: opacity 1s;
 }
 
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-  opacity: 1;
+.ingredient {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: 10px;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  position: relative;
 }
 
-.buttons {
+.cauldron-container {
+  display: flex;
   margin: auto;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+  gap: 80px;
 }
-.buttons .mix-button {
+.cauldron-container .cauldron {
+  display: flex;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  width: 480px;
+  height: 480px;
+}
+.cauldron-container .buttons {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  align-self: center;
+}
+.cauldron-container .buttons .mix-button {
   padding: 10px 0;
   background-color: #4C5343;
   color: white;
@@ -488,13 +513,12 @@
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
-  margin-top: 40px;
   width: 215px;
 }
-.buttons .mix-button:hover {
+.cauldron-container .buttons .mix-button:hover {
   background-color: #6e7563;
 }
-.buttons .redo-button {
+.cauldron-container .buttons .redo-button {
   padding: 10px 0;
   background-color: #10100f;
   color: white;
@@ -502,20 +526,34 @@
   font-weight: 500;
   font-size: 1rem;
   cursor: pointer;
-  margin-top: 40px;
+  margin-top: 20px;
   width: 215px;
 }
-.buttons .redo-button:hover {
+.cauldron-container .buttons .redo-button:hover {
   background-color: #393937;
 }
 
 #generated-potion {
-  margin: auto;
+  display: none;
+  margin: 55px 100px;
+  background: #32362cd6;
+}
+#generated-potion .potion {
+  display: flex;
+}
+#generated-potion .potion p {
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
 }
+#generated-potion div {
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin: auto;
+  padding-top: 20px;
+}
 #generated-potion h1, #generated-potion h2 {
   text-align: center;
-  margin: 5px 0;
+  margin: 0;
 }

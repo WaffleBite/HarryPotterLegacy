@@ -67,13 +67,6 @@ class BlogPostController extends Controller
         return redirect('/dashboard/posts') -> with('mssg', 'Post published!');
     }
 
-
-    public function show($id)
-    {
-        //
-    }
-
-
     public function edit($id)
     {
         $data = News::with('tags')->findOrFail($id);
